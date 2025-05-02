@@ -83,7 +83,7 @@ export default class GameplayScene extends Phaser.Scene {
         start: 0,   // First frame
         end: 1      // Last frame
       }),
-      frameRate: 2,  // 10 frames per second
+      frameRate: 2,  // 2 frames per second
       repeat: -1      // -1 means loop indefinitely
     });
   }
