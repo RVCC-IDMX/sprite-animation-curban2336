@@ -17,6 +17,7 @@ export default class TitleScene extends Phaser.Scene {
     // Load a background image
     this.load.image('background', 'assets/images/background.png');
 
+    // Load Images for Parallax background
     this.load.image('clouds', 'assets/images/seaview_clouds.png');
     this.load.image('ground', 'assets/images/seaview_foreground.png');
     this.load.image('hills', 'assets/images/seaview_hills.png');
