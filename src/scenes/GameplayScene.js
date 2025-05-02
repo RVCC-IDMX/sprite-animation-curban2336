@@ -17,11 +17,19 @@ export default class GameplayScene extends Phaser.Scene {
    * Create game objects and set up the gameplay
    */
   create() {
-    // Add background image
-    this.add.image(600, 300, 'background').setDisplaySize(1200, 600);
-    this.bg1 = this.add.tileSprite(0, 0, 1200, 600, 'sky').setOrigin(0, 0);
-    this.bg2 = this.add.tileSprite(0, 0, 1200, 600, 'mountains').setOrigin(0, 0);
-    this.bg3 = this.add.tileSprite(0, 0, 1200, 600, 'ground').setOrigin(0, 0);
+    // Add background images
+    this.bg1 = this.add.tileSprite(0, 0, 0, 0, 'sky').setOrigin(0, 0);
+    this.bg2 = this.add.tileSprite(0, 0, 0, 0, 'clouds').setOrigin(0, 0);
+    this.bg3 = this.add.tileSprite(0, 0, 0, 0, 'hills').setOrigin(0, 0);
+    this.bg4 = this.add.tileSprite(0, 0, 0, 0, 'sea').setOrigin(0, 0);
+    this.bg5 = this.add.tileSprite(0, 0, 0, 0, 'ground').setOrigin(0, 0);
+
+    //Scale to frame size
+    this.bg1.setScale(0.35);
+    this.bg2.setScale(0.35);
+    this.bg3.setScale(0.35);
+    this.bg4.setScale(0.35);
+    this.bg5.setScale(0.35);
 
     // Create animations
     this.createAnimations();
@@ -125,9 +133,11 @@ export default class GameplayScene extends Phaser.Scene {
       this.player.anims.play('walk', true);
 
       // Move backgrounds for parallax effect (slower = farther away)
-      this.bg1.tilePositionX -= 0.1;  // Sky moves very slowly
-      this.bg2.tilePositionX -= 0.3;  // Mountains move a bit faster
-      this.bg3.tilePositionX -= 0.5;  // Ground moves the fastest
+      this.bg1.tilePositionX -= 0.1;
+      this.bg2.tilePositionX -= 0.1;
+      this.bg3.tilePositionX -= 0.1;
+      this.bg4.tilePositionX -= 0.3;
+      this.bg5.tilePositionX -= 0.5;
     }
     // Handle right movement
     else if (this.cursors.right.isDown && this.player.x < worldWidth - halfWidth) {
@@ -136,9 +146,11 @@ export default class GameplayScene extends Phaser.Scene {
       this.player.anims.play('walk', true);
 
       // Move backgrounds for parallax effect (slower = farther away)
-      this.bg1.tilePositionX += 0.1;  // Sky moves very slowly
-      this.bg2.tilePositionX += 0.3;  // Mountains move a bit faster
-      this.bg3.tilePositionX += 0.5;  // Ground moves the fastest
+      this.bg1.tilePositionX += 0.1;
+      this.bg2.tilePositionX += 0.1;
+      this.bg3.tilePositionX += 0.1;
+      this.bg4.tilePositionX += 0.3;
+      this.bg5.tilePositionX += 0.5;
     }
     // No movement or at edge
     else {
